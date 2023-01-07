@@ -1,6 +1,7 @@
 package com.jpabook.jpashop.repository;
 
 import com.jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,10 +9,11 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository // 컴포넌트 스캔의 대상이 되어 스프링 빈에 등록된다.
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext // Entity 매니저 주입
-    private EntityManager em;
+    //@PersistenceContext // Entity 매니저 주입
+    private final EntityManager em;
 
     // 회원 저장
     public void save(Member member){
